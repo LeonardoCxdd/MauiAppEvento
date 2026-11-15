@@ -7,6 +7,8 @@ namespace MauiAppEvento
         public App()
         {
             InitializeComponent();
+
+            MainPage = new NavigationPage(new Views.TelaInicialDoEvento());
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

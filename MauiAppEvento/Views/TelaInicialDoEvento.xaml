@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEvento.Views.TelaInicialDoEvento"
+             Title="TelaInicialDoEvento"
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="{StaticResource PessegoClaro}">
+
+    <VerticalStackLayout  VerticalOptions="CenterAndExpand"
+                          Padding="10">
+
+        <Label 
+                   Text="Sobre O Evento!"
+                   FontFamily="Sora-ExtraLight"
+                   FontSize="40"
+                   TextColor="Black" />
+
+       <Frame Padding="10"
+               BackgroundColor="{StaticResource Lavanda}">
+        <VerticalStackLayout>
+            <Grid RowDefinitions="Auto, Auto"
+                  ColumnDefinitions="*, *, 2*">
+
+                <Label Grid.Row="0" Grid.Column="0" 
+                       Text="Nome Do Evento:(colocar o nome do evento) " 
+                       FontSize="18"/>
+                    <Stepper x:Name="NomeEvento" > </Stepper>
+                
+                
+                <Label Grid.Row="0" Grid.Column="2" 
+                       Text="Localização Do Eveneto:(colocar a Localização do evento) "  
+                       FontSize="20"/>
+            </Grid>
+
+                <Frame Padding="10"
+                       Margin="10" 
+                       BackgroundColor="{StaticResource Lavanda}">
+
+                    <VerticalStackLayout>
+                        <Label Text="Periodo do evento" />
+                        <HorizontalStackLayout>
+                            <Label Text="Inicio do Evento" />
+                            <DatePicker x:Name="InicioEvento"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Fim do Evento" />
+                            <DatePicker x:Name="Fimevento"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+
+                    </VerticalStackLayout>
+                    
+                </Frame>
+
+                <Button Text="Participar do evento" />
+
+            </VerticalStackLayout>
+      </Frame>
+       
+
+    </VerticalStackLayout>
+</ContentPage>
