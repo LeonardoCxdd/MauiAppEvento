@@ -2,64 +2,97 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppEvento.Views.TelaInicialDoEvento"
-             Title="TelaInicialDoEvento"
-             NavigationPage.HasNavigationBar="False" 
+             Title="Cadastro do evento"
+             NavigationPage.HasNavigationBar="True"
              BackgroundColor="{StaticResource PessegoClaro}">
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand"
-                         Padding="10">
-
-        <Label 
-                   Text="Sobre O Evento!"
-                   FontFamily="Sora-ExtraLight"
-                   FontSize="40"
+    <ScrollView>
+        <VerticalStackLayout Padding="22" Spacing="16">
+            <Label Text="Cadastro do evento"
+                   FontFamily="Sora-Medium"
+                   FontSize="30"
                    TextColor="Black" />
 
-       <Frame Padding="10"
+            <Label Text="Preencha as informações para cadastrar seu evento."
+                   FontSize="14"
+                   TextColor="Black" />
+
+            <Frame Padding="16"
+                   CornerRadius="14"
                BackgroundColor="{StaticResource Lavanda}">
-        <VerticalStackLayout>
-            <Grid RowDefinitions="Auto, Auto"
-                  ColumnDefinitions="*, *, 2*">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Informações gerais"
+                           FontFamily="Sora-Medium"
+                           FontSize="20"
+                           TextColor="Black" />
 
-                <Label Grid.Row="0" Grid.Column="0" 
-                       Text="Nome Do Evento:(colocar o nome do evento) " 
-                       FontSize="18"/>
-                    <Stepper x:Name="NomeEvento" > </Stepper>
+                    <Label Text="Nome do evento" TextColor="Black" />
+                    <Entry Placeholder="Digite o nome do evento"
+                           Text="{Binding Nome, Mode=TwoWay}"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           PlaceholderColor="Gray" />
                 
+                    <Label Text="Localização" TextColor="Black" />
+                    <Entry Placeholder="Digite o local do evento"
+                           Text="{Binding Localizacao, Mode=TwoWay}"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           PlaceholderColor="Gray" />
+                </VerticalStackLayout>
+            </Frame>
                 
-                <Label Grid.Row="0" Grid.Column="2" 
-                       Text="Localização Do Eveneto:(colocar a Localização do evento) "  
-                       FontSize="20"/>
-            </Grid>
-
-                <Frame Padding="10"
-                       Margin="10" 
+            <Frame Padding="16"
+                   CornerRadius="14"
                        BackgroundColor="{StaticResource Lavanda}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Período do evento"
+                           FontFamily="Sora-Medium"
+                           FontSize="20"
+                           TextColor="Black" />
 
-                    <VerticalStackLayout>
-                        <Label Text="Periodo do evento" />
-                        <HorizontalStackLayout>
-                            <Label Text="Inicio do Evento" />
-                            <DatePicker x:Name="InicioEvento"
-                                        Format="dd/MM/yyyy" />
-                        </HorizontalStackLayout>
+                    <Label Text="Data de início" TextColor="Black" />
+                    <DatePicker Date="{Binding DataInicio, Mode=TwoWay}"
+                                Format="dd/MM/yyyy"
+                                BackgroundColor="White"
+                                TextColor="Black" />
 
-                        <HorizontalStackLayout>
-                            <Label Text="Fim do Evento" />
-                            <DatePicker x:Name="Fimevento"
-                                        Format="dd/MM/yyyy" />
-                        </HorizontalStackLayout>
-
-
+                    <Label Text="Data de término" TextColor="Black" />
+                    <DatePicker Date="{Binding DataFim, Mode=TwoWay}"
+                                Format="dd/MM/yyyy"
+                                BackgroundColor="White"
+                                TextColor="Black" />
                     </VerticalStackLayout>
+            </Frame>
                     
-                </Frame>
+            <Frame Padding="16"
+                   CornerRadius="14"
+                   BackgroundColor="{StaticResource Lavanda}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Participantes"
+                           FontFamily="Sora-Medium"
+                           FontSize="20"
+                           TextColor="Black" />
 
-                <Button Text="Participar do evento" Clicked="Button_Clicked"/>
+                    <Entry Placeholder="Quantidade de participantes"
+                           Keyboard="Numeric"
+                           Text="{Binding NumeroParticipantes, Mode=TwoWay}"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           PlaceholderColor="Gray" />
 
+                    <Label Text="Valor por participante: R$ 50,00"
+                           FontSize="14"
+                           TextColor="Black" />
             </VerticalStackLayout>
       </Frame>
        
-
+            <Button Text="Cadastrar e ver resumo"
+                    Clicked="Button_Clicked"
+                    BackgroundColor="#7357A6"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Padding="14" />
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

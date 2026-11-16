@@ -2,11 +2,105 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppEvento.Views.ResumoDoEvento"
-             Title="ResumoDoEvento">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Resumo do evento"
+             BackgroundColor="{StaticResource PessegoClaro}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22" Spacing="16">
+            <Label Text="Resumo do evento"
+                   FontFamily="Sora-Medium"
+                   FontSize="30"
+                   TextColor="Black" />
+
+            <Frame Padding="18"
+                   CornerRadius="14"
+                   BackgroundColor="{StaticResource Lavanda}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Dados cadastrados"
+                           FontFamily="Sora-Medium"
+                           FontSize="20"
+                           TextColor="Black" />
+
+                    <Label Text="Nome do evento" 
+                           FontFamily="SoraExtraLight" 
+                           TextColor="{StaticResource Black}" />
+                    
+                    <Label Text="{Binding Nome}" 
+                           FontSize="17" 
+                           TextColor="Black" />
+
+                    <Label Text="Localização" 
+                           FontFamily="SoraExtraLight" 
+                           TextColor="{StaticResource Black}" />
+                   
+                    <Label Text="{Binding Localizacao}" 
+                           FontSize="17" 
+                           TextColor="Black" />
+
+                    <Label Text="Data de início" 
+                           FontFamily="SoraExtraLight" 
+                           TextColor="{StaticResource Black}" />
+                    
+                    <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"
+                           FontSize="17" 
+                           TextColor="Black" />
+
+                    <Label Text="Data de término" 
+                           FontFamily="SoraExtraLight" TextColor="{StaticResource Black}" />
+                    
+                    <Label Text="{Binding DataFim, StringFormat='{0:dd/MM/yyyy}'}"
+                           FontSize="17" 
+                           TextColor="Black" />
+
+                    <Label Text="Duração" 
+                           FontFamily="SoraExtraLight" 
+                           TextColor="{StaticResource Black}" />
+                    
+                    <Label Text="{Binding DuracaoFormatada}" 
+                           FontSize="17" 
+                           TextColor="{StaticResource Black}" />
+
+                    <Label Text="Número de participantes" 
+                               FontAttributes="Bold" 
+                               TextColor="{StaticResource Black}" />
+                        
+                    <Label Text="{Binding NumeroParticipantes}" 
+                           FontSize="17" 
+                           TextColor="{StaticResource Black}" />
+
+                    <Label Text="Valor por participante" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource Black}" />
+                    
+                    <Label Text="{Binding ValorPorParticipanteFormatado}"
+                           FontSize="17" 
+                           TextColor="{StaticResource Black}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Padding="18"
+                   CornerRadius="14"
+                   BackgroundColor="{StaticResource PessegoClaroMais}" >
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Custo total do evento"
+                           FontFamily="Sora-Medium"
+                           FontSize="20"
+                           TextColor="Black" />
+                    <Label Text="{Binding CustoTotalFormatado}"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Black}" />
+                    <Label Text="Cálculo: número de participantes × R$ 50,00"
+                           FontSize="13"
+                           TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Voltar"
+                    Clicked="Button_Voltar_Clicked"
+                    BackgroundColor="#7357A6"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Padding="14" />
     </VerticalStackLayout>
 </ContentPage>
