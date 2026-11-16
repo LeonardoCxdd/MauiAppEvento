@@ -6,8 +6,8 @@
              NavigationPage.HasNavigationBar="False" 
              BackgroundColor="{StaticResource PessegoClaro}">
 
-    <VerticalStackLayout  VerticalOptions="CenterAndExpand"
-                          Padding="10">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
 
         <Label 
                    Text="Sobre O Evento!"
@@ -55,7 +55,7 @@
                     
                 </Frame>
 
-                <Button Text="Participar do evento" />
+                <Button Text="Participar do evento" Clicked="Button_Clicked"/>
 
             </VerticalStackLayout>
       </Frame>
